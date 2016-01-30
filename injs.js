@@ -37,35 +37,16 @@ function start(){
             lists[i].zIndex=0;
             var oLi=lists[i];
         }
-
-    if(this.index>=5){
-        lists[0].id="a"+1;
-        animate(lists[0],{zIndex:11},1000);
-    }else{
     lists[this.index+1].id="a"+(this.index+2);
-        animate(lists[this.index+1],{zIndex:11},1000);
+    lists[this.index+1].zIndex=10;
+        if(this.index%2===0){
+    lists[this.index].style.webkitTransform="scale(0.5) translate(850px,-1500px)";
+    }else{
+        lists[this.index].style.webkitTransform="scale(0.5) translate(-850px,-1500px)";
     }
-    //    if(this.index%2===0){
-    //lists[this.index].style.webkitTransform="scale(0.5) translate(850px,-1500px)";
-    //}else{
-    //    lists[this.index].style.webkitTransform="scale(0.5) translate(-850px,-1500px)";
-    //}
     if(this.index===0){
             lists[this.index].style.transition="all 1.7s linear 1s";
     }else{
     lists[this.index].style.transition="all 2s linear"
     }
-    //if(this.index==0){
-    //    animate(lists[lists.length-1],{zIndex:0},600);
-    //    lists[lists.length-1].style.webkitTransform="";
-    //}else{
-        animate(lists[this.index],{zIndex:0},600);
-        lists[this.index].style.webkitTransform="";
-    //}
-    if(this.index===0){
-        lists[lists.length-1].id="";
-    }else{
-        lists[this.index-1].id="";
-    }
-
 }
