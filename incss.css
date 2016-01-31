@@ -21,6 +21,7 @@ ul {
     left: 50%;
     top: 0;
     margin-left: -320px;
+    -webkit-transform-origin: top;
     transform-origin: top;
 }
 
@@ -94,6 +95,7 @@ ul {
     position: absolute;
     left: -45%;
     top: 76%;
+    -webkit-transform: scale(0.6);
     transform: scale(0.6);
 }
 
@@ -115,8 +117,8 @@ ul {
 }
 
 #a2 .Lt {
-    animation: Lt 1s linear 1.6s forwards;
     -webkit-animation: Lt 1s linear 1.6s forwards;
+    animation: Lt 1s linear 1.6s forwards;
 }
 
 @keyframes Lt {
@@ -130,7 +132,17 @@ ul {
         transform: translate(152%, 0)
     }
 }
-
+@-webkit-keyframes Lt {
+    0% {
+        -webkit-transform: translate(-200px, 0)
+    }
+    30% {
+        -webkit-transform: translate(-100px, 0)
+    }
+    100% {
+        -webkit-transform: translate(152%, 0)
+    }
+}
 .Ld {
     text-align: center;
     position: absolute;
@@ -143,8 +155,8 @@ ul {
 }
 
 #a2 .Ld {
-    animation: Ld 1s linear 1.6S forwards;
     -webkit-animation: Ld 1s linear 1.6s forwards;
+    animation: Ld 1s linear 1.6S forwards;
 }
 
 @keyframes Ld {
@@ -175,6 +187,7 @@ ul {
     height: 360px;
     border-radius: 50%;
     border: 1px solid #ffffff;
+    -webkit-animation: dd2 1s linear 2.7s forwards;
     animation: dd2 1s linear 2.7s forwards;
     opacity: 0;
 }
@@ -198,9 +211,8 @@ ul {
     height: 390px;
     border-radius: 50%;
     border: 3px dashed #ffffff;
-    animation: rotateIn 1s linear 0.9s infinite both;
     -webkit-animation: rotateIn 1s linear 0.9s infinite both;
-
+    animation: rotateIn 1s linear 0.9s infinite both;
 }
 
 @keyframes rotateIn {
@@ -235,7 +247,7 @@ ul {
     animation: totay 1s ease-in-out 1.8s forwards;
 }
 
-@keyframes totay {
+@-webkit-keyframes totay {
     0% {
         -webkit-transform: translate(0, -15px) scale(0.4);
     }
@@ -249,7 +261,20 @@ ul {
         -webkit-transform: translate(0, 125px) scale(1);
     }
 }
-
+@keyframes totay {
+    0% {
+        transform: translate(0, -15px) scale(0.4);
+    }
+    70% {
+        transform: translate(0, 115px) scale(0.7);
+    }
+    90% {
+        transform: translate(0, 90px) scale(1.3);
+    }
+    100% {
+        transform: translate(0, 125px) scale(1);
+    }
+}
 #list li:nth-child(3) {
     position: absolute;
     width: 100%;
@@ -268,6 +293,7 @@ ul {
 #a3 .im {
     -webkit-animation: im 1s ease-in 1.2s forwards;
     animation: im 1s ease-in 1.2s forwards;
+    -webkit-transform-origin: center;
     transform-origin: center;
 }
 
@@ -295,6 +321,30 @@ ul {
     height: 23%;
     border-radius: 5px;
 }
+@-webkit-keyframes im {
+    0% {
+        -webkit-transform: scale(0.3);
+        opacity: 0.3;
+    }
+    30% {
+        -webkit-transform: scale(0.8);
+        opacity:0.5;
+    }
+    60% {
+        -webkit-transform: scale(1.3);
+        opacity:1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity:1;
+    }
+}
+
+#list li:nth-child(3) .im img {
+    width: 53%;
+    height: 23%;
+    border-radius: 5px;
+}
 
 #list li:nth-child(3) .im1 {
     position: absolute;
@@ -307,7 +357,6 @@ ul {
     -webkit-animation: im1 1.5s linear forwards;
     animation: im1 1s linear 1.5s forwards;
 }
-
 @keyframes im1 {
     0% {
         transform: translate(200px, 0)
@@ -320,6 +369,21 @@ ul {
     }
     100% {
         transform: translate(-19%, 0);
+        opacity: 1
+    }
+}
+@-webkit-keyframes im1 {
+    0% {
+        -webkit-transform: translate(200px, 0)
+    }
+    50% {
+        -webkit-transform: translate(120px, 0)
+    }
+    80% {
+        -webkit-transform: translate(-20%, 0)
+    }
+    100% {
+        -webkit-transform: translate(-19%, 0);
         opacity: 1
     }
 }
@@ -352,6 +416,19 @@ ul {
     animation: me 1.2s linear 0.7s forwards;
 }
 
+@-webkit-keyframes me {
+    0% {
+        -webkit-transform: rotateY(360deg);
+        opacity: 0.5;
+    }
+    50% {
+        -webkit-transform: rotateY(360deg)
+    }
+    100% {
+        -webkit-transform: rotateY(0deg);
+        opacity: 1
+    }
+}
 @keyframes me {
     0% {
         transform: rotateY(360deg);
@@ -365,10 +442,20 @@ ul {
         opacity: 1
     }
 }
-
 #a3 .p2 {
     -webkit-animation: p2 2s ease-in 1s;
     animation: p2 2s ease-in 1s;
+}
+@-webkit-keyframes p2 {
+    0% {
+        -webkit-transform: rotateY(0deg)
+    }
+    50% {
+        -webkit-transform: rotateY(-360deg)
+    }
+    100% {
+        -webkit-transform: rotateY(-360deg)
+    }
 }
 
 @keyframes p2 {
@@ -420,13 +507,13 @@ ul {
 
 @keyframes mes {
     0% {
-        -webkit-transform: translate(300px, 0)
+        transform: translate(300px, 0)
     }
     50% {
-        -webkit-transform: translate(150px, 0)
+       transform: translate(150px, 0)
     }
     100% {
-        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
         opacity: 1;
     }
 }
@@ -460,10 +547,31 @@ ul {
 }
 
 #a4 .p4 {
+    -webkit-animation: p4 1.2s ease-in 0.8s forwards;
     animation: p4 1.2s ease-in 0.8s forwards;
+    -webkit-transition: all 1.2s ease-out;
     transition: all 1.2s ease-out;
 }
 
+@-webkit-keyframes p4 {
+    0% {
+        -webkit-transform: translate(0, -5%) rotate(-22deg) scale(0.5)
+    }
+    30% {
+        -webkit-transform: translate(0, 10%) rotate(22deg) scale(0.5)
+    }
+    60% {
+        -webkit-transform: translate(0, -5%) rotate(-22deg) scale(1);
+        opacity: 0.7;
+    }
+    80% {
+        -webkit-transform: translate(0, 10%) rotate(22deg) scale(0.9)
+    }
+    100% {
+        -webkit-transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
 @keyframes p4 {
     0% {
         transform: translate(0, -5%) rotate(-22deg) scale(0.5)
@@ -472,18 +580,17 @@ ul {
         transform: translate(0, 10%) rotate(22deg) scale(0.5)
     }
     60% {
-        transform: translate(0, -5%) rotate(-22deg) scale(1);
+       transform: translate(0, -5%) rotate(-22deg) scale(1);
         opacity: 0.7;
     }
     80% {
-        transform: translate(0, 10%) rotate(22deg) scale(0.9)
+       transform: translate(0, 10%) rotate(22deg) scale(0.9)
     }
     100% {
         transform: translate(0, 0) scale(1);
         opacity: 1;
     }
 }
-
 #list li:nth-child(4) .aa p {
     position: absolute;
     left: 43%;
@@ -517,11 +624,14 @@ ul {
 }
 
 #a4 {
+    -webkit-transition: all 2.5s;
     transition: all 2.5s;
 }
 
 #a4 .sp4 {
+    -webkit-transform-origin: right;
     transform-origin: right;
+    -webkit-animation: s4 1.5s linear 1.5s forwards;
     animation: s4 1.5s linear 1.5s forwards;
 }
 
@@ -580,11 +690,13 @@ ul {
     background: url(img/pc.png) no-repeat center;
     border-radius: 50%;
     opacity: 0.3;
+    -webkit-transform: scale(0.3);
     transform: scale(0.3);
 
 }
 
 #a4 .aa .pc {
+    -webkit-animation: pc 1s linear 1s forwards;
     animation: pc 1s linear 1s forwards;
 }
 
@@ -602,7 +714,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes pc {
+    0% {
+        -webkit-transform: scale(0.5);
+        opacity: 0.5
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        opacity: 0.7
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1
+    }
+}
 #list li:nth-child(4) .text {
     position: absolute;
     left: -50%;
@@ -615,6 +740,7 @@ ul {
 }
 
 #a4 .text {
+    -webkit-animation: tex 1s ease-in 2s forwards;
     animation: tex 1s ease-in 2s forwards;
 }
 
@@ -631,7 +757,19 @@ ul {
         transform: rotateY(0deg)
     }
 }
-
+@-webkit-keyframes tex {
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 50%;
+        -webkit-transform: rotateY(45deg)
+    }
+    100% {
+        left: 50%;
+        -webkit-transform: rotateY(0deg)
+    }
+}
 #list li:nth-child(4) .texts {
 }
 
@@ -682,6 +820,7 @@ ul {
 
 #a4 .texts p {
     width: 180%;
+    -webkit-animation: ss 0.6s linear 3.5s forwards;
     animation: ss 0.6s linear 3.5s forwards;
 }
 
@@ -696,7 +835,17 @@ ul {
         opacity: 1;
     }
 }
-
+@-webkit-keyframes ss {
+    0% {
+        opacity: 0.3
+    }
+    80% {
+        opacity: 0.6
+    }
+    100% {
+        opacity: 1;
+    }
+}
 #a4 .texts p span.ss1 {
     animation: spa 1.5s linear 4s forwards;
 }
@@ -720,16 +869,29 @@ ul {
         width: 160%;
     }
 }
-
+@-webkit-keyframes spa {
+    0% {
+        width: 20%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 160%;
+    }
+}
 #a4 .texts p span.ss2 {
+    -webkit-animation: spa1 1.5s linear 4s forwards;
     animation: spa1 1.5s linear 4s forwards;
 }
 
 #a4 .texts p span.ss3 {
+    -webkit-animation: spa1 1.5s linear 4s forwards;
     animation: spa1 1.5s linear 4s forwards;
 }
 
 #a4 .texts p span.ss4 {
+    -webkit-animation: spa1 1.5s linear 4s forwards;
     animation: spa1 1.5s linear 4s forwards;
 }
 
@@ -744,7 +906,17 @@ ul {
         width: 150%;
     }
 }
-
+@-webkit-keyframes spa1 {
+    0% {
+        width: 20%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 150%;
+    }
+}
 #list li:nth-child(5) {
     position: absolute;
     width: 100%;
@@ -786,6 +958,7 @@ ul {
 }
 
 #a5 .pp5 {
+    -webkit-animation: pp5 0.8s linear 1.3s forwards;
     animation: pp5 0.8s linear 1.3s forwards;
 }
 
@@ -799,8 +972,18 @@ ul {
         transform: translate(0, 138%)
     }
 }
-
+@-webkit-keyframes pp5 {
+    0% {
+        opacity: 0.1;
+        -webkit-transform: translate(0, 0%)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(0, 138%)
+    }
+}
 #a5 .sEval {
+    -webkit-animation: se 0.8s linear 1.3s forwards;
     animation: se 0.8s linear 1.3s forwards;
 }
 
@@ -818,7 +1001,20 @@ ul {
         transform: translate(-125%, 0)
     }
 }
-
+@-webkit-keyframes se {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate(-22%, 0)
+    }
+    50% {
+        opacity: 0.5;
+        -webkit-transform: translate(-50%, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(-125%, 0)
+    }
+}
 #list li:nth-child(6) {
     position: absolute;
     top:0;
@@ -833,11 +1029,13 @@ ul {
     position: absolute;
     margin-left: -5%;
     margin-top: -11%;
+    -webkit-transform: scale(0.3);
     transform: scale(0.3);
     opacity: 0;
 }
 
 #a6 .daa1 {
+    -webkit-animation: da 1s ease-in 1s forwards;
     animation: da 1s ease-in 1s forwards;
 }
 
@@ -855,7 +1053,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes da {
+    0% {
+        -webkit-transform: scale(0.5) rotate(20deg);
+        opacity: 0.6
+    }
+    50% {
+        -webkit-transform: scale(1.2) rotate(-20deg);
+        opacity: 0.8
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(0deg);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) .daa2 {
     width: 65%;
     height: 50%;
@@ -864,6 +1075,7 @@ ul {
 }
 
 #a6 .daa2 {
+    -webkit-animation: aim 1s linear 1s;
     animation: aim 1s linear 1s;
 }
 
@@ -881,7 +1093,20 @@ ul {
         transform: scale(1)
     }
 }
-
+@-webkit-keyframes aim {
+    0% {
+        -webkit-transform: scale(1.3)
+    }
+    30% {
+        -webkit-transform: scale(1)
+    }
+    60% {
+        -webkit-transform: scale(1.3)
+    }
+    100% {
+        -webkit-transform: scale(1)
+    }
+}
 #list li:nth-child(6) .ap1 {
     position: absolute;
     left: 55%;
@@ -895,6 +1120,7 @@ ul {
 }
 
 #a6 .ap1 {
+    -webkit-animation: ap1 1s linear 1s forwards;
     animation: ap1 1s linear 1s forwards;
 }
 
@@ -912,7 +1138,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ap1 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-90%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-315%, 0);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) .ap2 {
     position: absolute;
     left: 55%;
@@ -926,6 +1165,7 @@ ul {
 }
 
 #a6 .ap2 {
+    -webkit-animation: ap2 1s linear 1.2s forwards;
     animation: ap2 1s linear 1.2s forwards;
 }
 
@@ -943,7 +1183,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ap2 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-90%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-315%, 0);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) .ap3 {
     position: absolute;
     left: 55%;
@@ -957,6 +1210,7 @@ ul {
 }
 
 #a6 .ap3 {
+    -webkit-animation: ap3 1s linear 1.4s forwards;
     animation: ap3 1s linear 1.4s forwards;
 }
 
@@ -974,7 +1228,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ap3 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-90%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-315%, 0);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) span {
     display: block;
     width: 366px;
@@ -995,6 +1262,7 @@ ul {
 }
 
 #a6 .ssp1 {
+    -webkit-animation: ssp1 1s linear 1.7s forwards;
     animation: ssp1 1s linear 1.7s forwards;
 }
 
@@ -1012,13 +1280,27 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ssp1 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-85%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-153%, 0);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) span.ssp2 {
     background: #45A693;
     top: 77%;
 }
 
 #a6 .ssp2 {
+    -webkit-animation: ssp1 1s linear 1.9s forwards;
     animation: ssp1 1s linear 1.9s forwards;
 }
 
@@ -1036,13 +1318,27 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ssp2 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-85%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-153%, 0);
+        opacity: 1
+    }
+}
 #list li:nth-child(6) span.ssp3 {
     background: #77759C;
     top: 87%;
 }
 
 #a6 .ssp3 {
+    -webkit-animation: ssp1 1s linear 2.1s forwards;
     animation: ssp1 1s linear 2.1s forwards;
 }
 
@@ -1060,7 +1356,20 @@ ul {
         opacity: 1
     }
 }
-
+@-webkit-keyframes ssp3 {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translate(-85%, 0);
+        opacity: 0.3
+    }
+    100% {
+        -webkit-transform: translate(-153%, 0);
+        opacity: 1
+    }
+}
 /*#list li:nth-child(5),#list li:nth-child(6),#list li:nth-child(7),#list li:nth-child(1),#list li:nth-child(2),#list li:nth-child(3),#list li:nth-child(4){*/
 /*display: none;*/
 /*}*/
