@@ -198,8 +198,8 @@ ul {
     height: 360px;
     border-radius: 50%;
     border: 1px solid #ffffff;
-    -webkit-animation: dd2 1s linear 2.7s forwards;
-    animation: dd2 1s linear 2.7s forwards;
+    -webkit-animation: dd2 1s linear 3s forwards;
+    animation: dd2 1s linear 3s forwards;
     opacity: 0;
 }
 
