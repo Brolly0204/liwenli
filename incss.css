@@ -57,6 +57,7 @@ ul {
     width: 120%;
     height: 196px;
     background: url(img/scaner.png) -53px;
+    -webkit-transform: scale(0.8);
     transform: scale(0.8);
 }
 
@@ -160,17 +161,27 @@ ul {
 }
 
 @keyframes Ld {
+     0% {
+         transform: translate(200px, 0)
+     }
+     30% {
+         transform: translate(100px, 0)
+     }
+     100% {
+         transform: translate(-159%, 0)
+     }
+ }
+@-webkit-keyframes Ld {
     0% {
-        transform: translate(200px, 0)
+        -webkit-transform: translate(200px, 0)
     }
     30% {
-        transform: translate(100px, 0)
+        -webkit-transform: translate(100px, 0)
     }
     100% {
-        transform: translate(-159%, 0)
+        -webkit-transform: translate(-159%, 0)
     }
 }
-
 .ldd {
     position: absolute;
     left: 23%;
@@ -202,7 +213,16 @@ ul {
         opacity: 1
     }
 }
-
+@keyframes dd2 {
+    0% {
+        -webkit-transform: scale(0.2);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1
+    }
+}
 .ddt {
     position: relative;
     left: 19%;
