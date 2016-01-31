@@ -213,7 +213,7 @@ ul {
         opacity: 1
     }
 }
-@keyframes dd2 {
+@-webkit-keyframes dd2 {
     0% {
         -webkit-transform: scale(0.2);
         opacity: 1
