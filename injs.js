@@ -8,6 +8,7 @@ var main=getEle("#main");
 var d1=getEle(".d1");
 var dd1=getEle(".dd1");
 var pp1=getEle(".pp1");
+var audio=getEle("#music");
 var lists=document.querySelectorAll("#list>li");
 var winW=document.documentElement.clientWidth;
 var winH=document.documentElement.clientHeight;
