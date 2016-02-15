@@ -194,7 +194,7 @@ for(var i=0;i<addLia.length;i++){
          }(i);
      }
  }
-    window.setTimeout(delay,400);
+    window.setTimeout(delay,250);
     var oImgs=inner.getElementsByTagName("img");
     var step=0;
     //�ѳ��˵�һ�ŵ�����ͼƬzindex��opacity��Ϊ0��
