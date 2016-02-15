@@ -450,7 +450,7 @@ li .topUla span {
 
 .saoma {
     position: absolute;
-    right: 270px;
+    right: 200px;
     top: 29px;
     width: 250px;
     border: 1px solid #ccc;
@@ -474,7 +474,7 @@ li .topUla span {
 
 .saoma1 {
     position: absolute;
-    right: 338px;
+    right: 268px;
     width: 80px;
     height: 97px;
     border: 1px solid #ccc;
@@ -511,7 +511,7 @@ li .topUla span {
 .list {
     display: none;
     position: absolute;
-    right: 163px;
+    right: 93px;
     border: 1px solid #ccc;
     width: 170px;
     height: 160px;
@@ -589,7 +589,7 @@ li .topUla span {
 .top1 .navigation {
     display: none;
     position: absolute;
-    right: 168px;
+    right: 98px;
     width: 1209px;
     height: 149px;
     border: 1px solid #CCCCCC;
