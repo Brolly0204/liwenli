@@ -662,4 +662,29 @@ for(var i=0;i<houseDivs.length;i++){
             }
         }
     })();
+    var winH=document.documentElement.clientHeight||document.body.clientHeight;
+    var load1Img=function(){
+        var winT=document.documentElement.scrollTop||document.body.scrollTop;
+        var imgList=document.body.getElementsByTagName("img");
+        console.log(imgList[0].offsetParent);
+        for(var i=0;i<imgList.length;i++){
+            ~function(i){
+                var curImg=imgList[i];
+                if(curImg.isLoad)return;
+                var imgT=utils.offset(curImg).top;
+                var imgH=curImg.offsetHeight;
+                if(imgT+imgH<=winT+winH){
+                    var oImg=new Image;
+                    oImg.src=curImg.getAttribute("trueImg");
+                    oImg.onload=function(){
+                        curImg.src=this.src;
+                        oImg=null;
+                        curImg.isLoad=true;
+                    }
+                }
+            }(i);
+        }
+    };
+    window.onscroll=load1Img;
+    window.onscroll();
 })();
