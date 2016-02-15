@@ -194,28 +194,26 @@ for(var i=0;i<addLia.length;i++){
          }(i);
      }
  }
-    window.setTimeout(delay,400);
+    window.setTimeout(delay,250);
     var oImgs=inner.getElementsByTagName("img");
     var step=0;
     //�ѳ��˵�һ�ŵ�����ͼƬzindex��opacity��Ϊ0��
-     for(var i=1;i<imgList.length;i++){
-         imgList[i].style.Zindex=0;
-         imgList[i].style.opacity=0;
-     }
+    for(var i=1;i<imgList.length;i++){
+        imgList[i].style.Zindex=0;
+        imgList[i].style.opacity=0;
+    }
     function auto(){
-        for(var i=0;i<imgList.length;i++){
-            animate(imgList[i],{zIndex:0,opacity:0},800);
-        }
+        animate(imgList[step],{zIndex:0,opacity:0},350);
         step++;
         if(step>data.length-1){
             oImgs[0].style.zIndex=1;
             step=0;
         }
-        animate(imgList[step],{zIndex:1,opacity:1},1800);
+        animate(imgList[step],{zIndex:1,opacity:1},400);
         change();
     }
 
-    var timer=window.setInterval(auto,3000);
+    var timer=window.setInterval(auto,2800);
     function change(){
         var temp=step>=tipList.length? 0:step;
         for(var i=0;i<tipList.length;i++){
@@ -226,12 +224,12 @@ for(var i=0;i<addLia.length;i++){
         tipList[i].t=i;
         tipList[i].onclick=function(){
             window.clearTimeout(timer);
-            for(var i=0;i<imgList.length;i++){
-                animate(imgList[i],{zIndex:0,opacity:0},800);
-            }
-            animate(imgList[this.t],{zIndex:1,opacity:1},1800);
+          for(var i=0;i<tipList.length;i++){
+            animate(imgList[i],{zIndex:0,opacity:0},350);
+          }
+            animate(imgList[this.t],{zIndex:1,opacity:1},400);
             step=this.t;
-            timer=window.setInterval(auto,4000);
+            timer=window.setInterval(auto,2800);
             change();
         }
     }
@@ -245,21 +243,19 @@ for(var i=0;i<addLia.length;i++){
     };
     right.onclick=function(){
         window.clearInterval(timer);
-        auto();
-        timer=window.setInterval(auto,4000);
+            auto();
+        timer=window.setInterval(auto,2800);
     };
     left.onclick=function(){
         window.clearInterval(timer);
-        for(var i=0;i<imgList.length;i++){
-            animate(imgList[i],{zIndex:0,opacity:0},800);
-        }
+            animate(imgList[step],{zIndex:0,opacity:0},350);
         step--;
         if(step<0){
           imgList[data.length-1].style.Zindex=1;
             step=data.length-1;
         }
-        animate(imgList[step],{zIndex:1,opacity:1},1800);
-        timer=window.setInterval(auto,4000);
+        animate(imgList[step],{zIndex:1,opacity:1},400);
+        timer=window.setInterval(auto,2800);
         change();
     };
     var store1=document.getElementById("store1");
@@ -278,7 +274,6 @@ for(var i=0;i<addLia.length;i++){
         var houseDiv = oLi.getElementsByTagName("div")[0];
           houseDivs.push(houseDiv);
     }
-    //console.log(houseDivs);
     for(var i=0;i<oLis.length;i++){
         oLis[i].t=i;
         oLis[i].onmouseenter=function(){
@@ -529,6 +524,7 @@ for(var i=0;i<houseDivs.length;i++){
                 changeTab(this.t);
             }
         }
+
     })();
     var inp=document.getElementById("inp");
      inp.onclick=function(){
@@ -536,27 +532,32 @@ for(var i=0;i<houseDivs.length;i++){
      };
     //地址切换；
     (function (){
-         var btnChange=document.getElementById("btnChange");
-         var optis=DOM._children(ad1.parentNode);
-         var opts=DOM._children(ad2.parentNode);
-    var addsel1=document.getElementById("addres");
-    var addsel2=document.getElementById("addres1");
-        btnChange.onclick=function() {
-            var t=null;
-     for (var i=0;i<optis.length;i++){
-         optis[i].value==addsel1.value? t=i :null;
-     }
-            var tem=null;
-            for (var j=0;j<opts.length;j++){
-                opts[j].value==addsel2.value? e=j :null;
-            }
-        var temp=optis[t].value;
-            optis[t].innerHTML=opts[e].value;
-            opts[e].innerHTML=temp;
-        }
+    //     var btnChange=document.getElementById("btnChange");
+    //     var optis=DOM._children(ad1.parentNode);
+    //     var opts=DOM._children(ad2.parentNode);
+    //var addsel1=document.getElementById("addres");
+    //var addsel2=document.getElementById("addres1");
+    //    btnChange.onclick=function() {
+    //        var t=null;
+    // for (var i=0;i<optis.length;i++){
+    //     optis[i].value==addsel1.value? t=i :null;
+    // }
+    //        var tem=null;
+    //        for (var j=0;j<opts.length;j++){
+    //            opts[j].value==addsel2.value? e=j :null;
+    //        }
+    //    var temp=optis[t].value;
+    //        optis[t].innerHTML=opts[e].value;
+    //        opts[e].innerHTML=temp;
+    //    };
+        $(".btn-change").click(function(){
+            var s=$(".addres").find("option:selected").text();
+            var e=$(".addres1").find("option:selected").text();
+          $(".addres").find("option:selected").text(e);
+           $(".addres1").find("option:selected").text(s);
+        })
     })();
     (function(){
-
         changl("inti","tipe","righte","lefte","outi");
         changl("inti1","tips","rights","lefts","outi1");
         function  changl(ele,tipn,right,left,eles){
@@ -566,7 +567,7 @@ for(var i=0;i<houseDivs.length;i++){
             var tipn=document.getElementById(tipn);
             var right=document.getElementById(right);
             var left=document.getElementById(left);
-            console.log(tipn);
+
             var imgList=inti.getElementsByTagName("div");
             var tipList=tipn.getElementsByTagName("li");
             function bind(){
@@ -651,4 +652,39 @@ for(var i=0;i<houseDivs.length;i++){
             };
         }
     })();
+    (function (){
+        var ridd1 =document.getElementById("ridd1");
+        var rils=ridd1.getElementsByTagName("li");
+        for(var i=0;i<rils.length;i++){
+            rils[i].onmouseleave=function(){
+                var ridv=DOM.children(this,"div");
+                animate(ridv,{right:-27+"px"},1000,4)
+            }
+        }
+    })();
+    //var winH=document.documentElement.clientHeight||document.body.clientHeight;
+    //var load1Img=function(){
+    //    var winT=document.documentElement.scrollTop||document.body.scrollTop;
+    //    var imgList=document.body.getElementsByTagName("img");
+    //    console.log(imgList[0].offsetParent);
+    //    for(var i=0;i<imgList.length;i++){
+    //        ~function(i){
+    //            var curImg=imgList[i];
+    //            if(curImg.isLoad)return;
+    //            var imgT=utils.offset(curImg).top;
+    //            var imgH=curImg.offsetHeight;
+    //            if(imgT+imgH<=winT+winH){
+    //                var oImg=new Image;
+    //                oImg.src=curImg.getAttribute("trueImg");
+    //                oImg.onload=function(){
+    //                    curImg.src=this.src;
+    //                    oImg=null;
+    //                    curImg.isLoad=true;
+    //                }
+    //            }
+    //        }(i);
+    //    }
+    //};
+    //window.onscroll=load1Img;
+    //window.onscroll();
 })();
