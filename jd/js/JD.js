@@ -136,7 +136,8 @@
                 }(i);
             }
         }
-        setTimeout(delay,250);
+        //setTimeout(delay,250);
+        delay();
 
 //    var size=$(".img li").size();
 //    var ll="";
@@ -154,7 +155,6 @@
         });
         var i=0;
         var t=setInterval(move,1800);
-        setTimeout(t,1500);
         function move(){
             i++;
             if(i==data.length){
