@@ -26,17 +26,13 @@ html, body {
     height: 100%
 }
 
-#list li {
-    display: none;
-}
-
 #list li:nth-child(1) {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 7;
     background-image: url(img/bg1.jpg);
-    display: block
+    display: block;
 }
 
 #list li:nth-child(1) .d1 {
@@ -1430,4 +1426,7 @@ html, body {
         -webkit-transform: translate(-153%, 0);
         opacity: 1
     }
+}
+#list li:nth-child(4),#list li:nth-child(5),#list li:nth-child(6){
+    display: none;
 }
