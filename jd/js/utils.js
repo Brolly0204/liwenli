@@ -39,5 +39,20 @@ var utils = {
                 this.setCss(curEle, key, options[key]);
             }
         }
+    },
+    offset:function (curEle)
+    {
+        var l = curEle.offsetLeft, t = curEle.offsetTop;
+        var p = curEle.offsetParent;
+        while (p.tagName.toLowerCase() != "body") {
+            if (navigator.userAgent.indexOf("MSIE 8.0") === -1) {
+                l += p.clientLeft;
+                t += p.clientTop;
+            }
+            l += p.offsetLeft;
+            t += p.offsetTop;
+            p = p.offsetParent;
+        }
+        return {left: l, top: t};
     }
 };

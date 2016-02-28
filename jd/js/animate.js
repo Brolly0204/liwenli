@@ -14,7 +14,7 @@ var animate = (function () {
     var getCss = function (curEle, attr) {
         var vale, reg;
         if ("getComputedStyle" in window) {
-            vale = window.getComputedStyle(curEle, null)[attr];
+            vale = window.getComputedStyle(curEle, null)[attr]
 
         } else {
             if (attr === "opacity") {
