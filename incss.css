@@ -6,6 +6,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 ul {
@@ -33,7 +34,10 @@ ul {
     height: 100%;
     position: absolute;
     background-repeat: no-repeat;
-    background-size:cover;}
+    background-size:cover;
+overflow: hidden;
+}
+
 
 #list li.zIndex {
     z-index: 7
