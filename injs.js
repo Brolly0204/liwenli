@@ -18,6 +18,9 @@ if (winW / winH < desW / desH) {
 } else {
     main.style.webkitTransform = "scale(" + winW / desW + ")";
 }
+for(var i=1;i<oLis.length;i++){
+    oLis[i].style.display="none";
+}
 oLis[0].addEventListener("touchstart", start1, false);
 function start1() {
     dd1.id = "dd1";
@@ -36,9 +39,6 @@ function start1() {
     oLi.addEventListener("touchmove", move, false);
     oLi.addEventListener("touchend", end, false);
 });
-for(var i=1;i<oLis.length;i++){
-    oLis[i].style.display="none";
-}
 function start(e) {
     this.startX = e.changedTouches[0].pageY;
 
