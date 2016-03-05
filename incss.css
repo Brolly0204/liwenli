@@ -16,7 +16,6 @@ ul {
 #main {
     width: 640px;
     height: 960px;
-    overflow: hidden;
     position: relative;
     left: 50%;
     top: 0;
