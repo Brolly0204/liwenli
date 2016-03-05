@@ -1,1 +1,88 @@
-function getEle(a){return document.querySelector(a)}function start1(a){a.preventDefault();dd1.id="dd1",pp1.innerHTML="扫描中...",window.setTimeout(function(){pp1.innerHTML="扫描成功",dd1.style.display="none"},500)}function start(a){this.startX=a.changedTouches[0].pageY,a.preventDefault()}function move(a){var b,c,d,e;this.flag=!0,b=a.changedTouches[0].pageY,c=b-this.startX,d=this.index,[].forEach.call(oLis,function(){arguments[0].className="",arguments[1]!=d&&(arguments[0].style.display="none"),arguments[0].id=""}),c>0?(this.prevSindex=d==oLis.length-1?0:d+1,e=-winH+c):0>c&&(this.prevSindex=0==d?oLis.length-1:d-1,e=winH+c),oLis[this.prevSindex].style.webkitTransform="translate(0,"+e+"px)",oLis[this.prevSindex].className="zIndex",oLis[this.prevSindex].style.display="block"}function end(){this.flag&&(oLis[this.prevSindex].style.webkitTransform="translate(0,0)",oLis[this.prevSindex].style.webkitTransition="0.5s ease-out",oLis[this.prevSindex].addEventListener("webkitTransitionEnd",function(a){"LI"==a.target.tagName&&(this.style.webkitTransition=""),this.id="a"+(this.index+1)},!1)),0===this.index&&window.setTimeout(function(){pp1.innerHTML=""},900)}var main=getEle("#main"),d1=getEle(".d1"),dd1=getEle(".dd1"),pp1=getEle(".pp1"),oLis=document.querySelectorAll("#list>li"),winW=document.documentElement.clientWidth,winH=document.documentElement.clientHeight,desW=640,desH=960;main.style.webkitTransform=desW/desH>winW/winH?"scale("+winH/desH+")":"scale("+winW/desW+")",oLis[0].addEventListener("touchstart",start1,!1),[].forEach.call(oLis,function(){var a=arguments[0];a.index=arguments[1],a.addEventListener("touchstart",start,!1),a.addEventListener("touchmove",move,!1),a.addEventListener("touchend",end,!1)});
+/**
+ * Created by Mr.Li on 2016/1/24.
+ */
+function getEle(ele) {
+    return document.querySelector(ele);
+}
+var main = getEle("#main");
+var d1 = getEle(".d1");
+var dd1 = getEle(".dd1");
+var pp1 = getEle(".pp1");
+var oLis = document.querySelectorAll("#list>li");
+var winW = document.documentElement.clientWidth;
+var winH = document.documentElement.clientHeight;
+var desW = 640;
+var desH = 960;
+if (winW / winH < desW / desH) {
+    main.style.webkitTransform = "scale(" + winH / desH + ")";
+} else {
+    main.style.webkitTransform = "scale(" + winW / desW + ")";
+}
+oLis[0].addEventListener("touchstart", start1, false);
+function start1() {
+    dd1.id = "dd1";
+    pp1.innerHTML = "扫描中...";
+    var fle=null;
+    window.setTimeout(function () {
+        pp1.innerHTML = "扫描成功";
+        dd1.style.display = "none";
+    }, 500);
+
+}
+[].forEach.call(oLis, function () {
+    var oLi = arguments[0];
+    oLi.index = arguments[1];
+    oLi.addEventListener("touchstart", start, false);
+    oLi.addEventListener("touchmove", move, false);
+    oLi.addEventListener("touchend", end, false);
+});
+for(var i=1;i<oLis.length;i++){
+    oLis[i].style.display="none";
+}
+function start(e) {
+    this.startX = e.changedTouches[0].pageY;
+
+}
+function move(e) {
+    this.flag = true;
+    var moveTouch = e.changedTouches[0].pageY;
+    var movePos = moveTouch - this.startX;
+    var index = this.index;
+    [].forEach.call(oLis, function () {
+        arguments[0].className = "";
+        if (arguments[1] != index) {
+            arguments[0].style.display = "none";
+        }
+        arguments[0].id = "";
+    });
+    if (movePos > 0) {//往下滑
+        //记录上一张的index；
+        this.prevSindex = (index == oLis.length - 1 ? 0 : index + 1);
+        var duration = -winH + movePos;
+    } else if (movePos < 0) {//往上滑
+        //记录上一张的index
+        this.prevSindex = (index == 0 ? oLis.length - 1 : index - 1);
+        var duration = winH + movePos;
+    }
+    //this.style.webkitTransform=" scale("+(1-Math.abs(movePos)/winH*1/2)+") translate(0,"+movePos+"px)";
+    oLis[this.prevSindex].style.webkitTransform = "translate(0," + duration + "px)";
+    oLis[this.prevSindex].className = 'zIndex';
+    oLis[this.prevSindex].style.display = "block";
+}
+function end(e) {
+    if (this.flag) {
+        oLis[this.prevSindex].style.webkitTransform = "translate(0,0)";
+        oLis[this.prevSindex].style.webkitTransition = "0.5s ease-out";
+        oLis[this.prevSindex].addEventListener("webkitTransitionEnd", function (e) {
+            if (e.target.tagName == "LI") {
+                this.style.webkitTransition = "";
+            }
+            this.id = "a" + (this.index + 1);
+        }, false)
+    }
+    if(this.index===0){
+        window.setTimeout(function () {
+            pp1.innerHTML = "";
+        }, 900);
+    }
+}
