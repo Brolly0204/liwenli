@@ -9,8 +9,8 @@ var d1 = getEle(".d1");
 var dd1 = getEle(".dd1");
 var pp1 = getEle(".pp1");
 var oLis = document.querySelectorAll("#list>li");
-var winW = document.documentElement.clientWidth;
-var winH = document.documentElement.clientHeight;
+var winW = window.innerWidth;
+var winH = window.innerHeight;
 var desW = 640;
 var desH = 960;
 if (winW / winH < desW / desH) {
