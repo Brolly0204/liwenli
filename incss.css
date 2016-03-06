@@ -16,11 +16,11 @@ ul {
 #main {
     width: 640px;
     height: 960px;
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 0;
     margin-left: -320px;
-    -webkit-transform-origin: top
+    -webkit-transform-origin: top;
     transform-origin: top;
 
 }
