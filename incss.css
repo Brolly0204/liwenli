@@ -26,9 +26,7 @@ ul {
 }
 
 #list {
-
     height: 100%
-overflow: hidden;
 }
 
 #list li {
@@ -39,7 +37,6 @@ overflow: hidden;
     background-size:cover;
     overflow: hidden;
 }
-
 
 #list li.zIndex {
     z-index: 7
@@ -92,7 +89,7 @@ overflow: hidden;
 }
 
 #list li:nth-child(2) {
-    background-image: url(img/p5.png);
+    background-image: url(img/bg2.jpg);
 }
 
 #list li:nth-child(2) img {
@@ -307,7 +304,7 @@ overflow: hidden;
 }
 
 #list li:nth-child(3) {
-    background-image: url(img/p3.jpg);
+    background-image: url(img/bg3.jpg);
 }
 
 #list li:nth-child(3) .im {
@@ -524,7 +521,7 @@ overflow: hidden;
 }
 
 #list li:nth-child(4) {
-    background-image: url(img/bg4.png)
+    background-image: url(img/bg4.jpg)
 }
 
 #list li:nth-child(4) .p4 {
@@ -913,7 +910,7 @@ overflow: hidden;
 #list li:nth-child(5) {
     width: 100%;
     height: 100%;
-    background: url(img/p6.png);
+    background: url(img/bg5.jpg);
 }
 
 #list li:nth-child(5) .dd5 {
@@ -949,7 +946,7 @@ overflow: hidden;
 }
 
 #list li:nth-child(6) {
-    background: url(img/p2.png) no-repeat;
+    background: url(img/bg6.jpg);
 }
 
 #list li:nth-child(6) .daa1 {
