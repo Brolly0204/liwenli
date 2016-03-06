@@ -21,7 +21,6 @@ ul {
     margin-left: -320px;
     -webkit-transform-origin: top;
     transform-origin: top;
-    overflow: hidden;
 }
 
 #list {
@@ -34,6 +33,7 @@ ul {
     position: absolute;
     background-repeat: no-repeat;
     background-size:cover;
+    overflow: hidden;
 }
 
 
