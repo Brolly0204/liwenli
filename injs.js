@@ -19,7 +19,7 @@ for(var i=1;i<oLis.length;i++){
     oLis[i].style.display="none";
 }
 oLis[0].addEventListener("touchstart", start1, false);
-function start1() {
+function start1(e) {
     e.stopPropagation();
     dd1.id = "dd1";
     pp1.innerHTML = "扫描中...";
@@ -73,7 +73,7 @@ function end(e) {
     e.stopPropagation();
     if (this.flag) {
         oLis[this.prevSindex].style.webkitTransform = "translate(0,0)";
-        oLis[this.prevSindex].style.webkitTransition = "0.5s ease-out";
+        oLis[this.prevSindex].style.webkitTransition = "0.8s ease-out";
         oLis[this.prevSindex].addEventListener("webkitTransitionEnd", function (e) {
             if (e.target.tagName == "LI") {
                 this.style.webkitTransition = "";
