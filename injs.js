@@ -67,7 +67,7 @@ function move(e) {
     oLis[this.prevSindex].style.webkitTransform = "translate(0," + duration + "px)";
     oLis[this.prevSindex].className = 'zIndex';
     oLis[this.prevSindex].style.display = "block";
-    oLis[index].style.webkitTransform ="scale("+(1-Math.abs(movePos)/winH*step)+") translate(0,"+changePos+"px)";
+    oLis[index].style.webkitTransform ="scale("+(1-Math.abs(movePos)/winH*step)+") translate(0,"+movePos+"px)";
 }
 function end(e) {
     if (this.flag) {
