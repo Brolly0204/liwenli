@@ -22,7 +22,7 @@ ul {
     margin-left: -320px;
     -webkit-transform-origin: top;
     transform-origin: top;
-
+    overflow: hidden;
 }
 
 #list {
