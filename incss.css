@@ -20,8 +20,9 @@ ul {
     left: 50%;
     top: 0;
     margin-left: -320px;
-    transform-origin: top;
     -webkit-transform-origin: top
+    transform-origin: top;
+
 }
 
 #list {
