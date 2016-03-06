@@ -41,15 +41,17 @@ function start(e) {
 
 }
 function move(e) {
+    e.preventDefault();
     this.flag = true;
     var moveTouch = e.changedTouches[0].pageY;
     var movePos = moveTouch - this.startX;
     var index = this.index;
+    var step=1/2;
     [].forEach.call(oLis, function () {
-        arguments[0].className = "";
         if (arguments[1] != index) {
             arguments[0].style.display = "none";
         }
+        arguments[0].className = "";
         arguments[0].id = "";
     });
     if (movePos > 0) {//往下滑
@@ -65,6 +67,7 @@ function move(e) {
     oLis[this.prevSindex].style.webkitTransform = "translate(0," + duration + "px)";
     oLis[this.prevSindex].className = 'zIndex';
     oLis[this.prevSindex].style.display = "block";
+    oLis[index].style.webkitTransform ="scale("+(1-Math.abs(movePos)/winH*step)+") translate(0,"+changePos+"px)";
 }
 function end(e) {
     if (this.flag) {

@@ -6,7 +6,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 ul {
@@ -22,7 +22,6 @@ ul {
     margin-left: -320px;
     -webkit-transform-origin: top;
     transform-origin: top;
-    overflow: hidden;
 }
 
 #list {
@@ -33,8 +32,9 @@ ul {
     width: 100%;
     height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     background-repeat: no-repeat;
-    background-size:cover;
 }
 
 #list li.zIndex {
