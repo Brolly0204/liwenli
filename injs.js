@@ -13,11 +13,8 @@ var winW = window.innerWidth;
 var winH = window.innerHeight;
 var desW = 640;
 var desH = 960;
-if (winW / winH < desW / desH) {
     main.style.webkitTransform = "scale(" + winH / desH + ")";
-} else {
-    main.style.webkitTransform = "scale(" + winW / desW + ")";
-}
+
 for(var i=1;i<oLis.length;i++){
     oLis[i].style.display="none";
 }
