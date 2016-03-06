@@ -1243,7 +1243,7 @@ ul {
     margin-left: -10px;
     width: 0;
     height: 0;
-    border: 10px solid #f82d2d;
+    border: 15px solid #f82d2d;
     border-color: transparent transparent #f82d2d transparent;
 
     -webkit-animation: tipMove 1.5s ease-in-out 0s infinite both;
