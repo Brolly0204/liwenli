@@ -6,7 +6,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 ul {
@@ -35,7 +35,6 @@ ul {
     position: absolute;
     background-repeat: no-repeat;
     background-size:cover;
-    overflow: hidden;
 }
 
 #list li.zIndex {
@@ -1235,5 +1234,69 @@ ul {
     100% {
         transform: translate(-115%, 0);
         opacity: 1
+    }
+}
+.tip {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border: 10px solid #f82d2d;
+    border-color: transparent transparent #f82d2d transparent;
+
+    -webkit-animation: tipMove 1.5s ease-in-out 0s infinite both;
+    animation: tipMove 1.5s ease-in-out 0s infinite both;
+}
+
+@-webkit-keyframes tipMove {
+    0%, 100% {
+        opacity: 1;
+        bottom: 10px;
+    }
+    50% {
+        opacity: 0;
+        bottom: 20px;
+    }
+}
+
+@keyframes tipMove {
+    0%, 100% {
+        opacity: 1;
+        bottom: 10px;
+    }
+    50% {
+        opacity: 0;
+        bottom: 20px;
+    }
+}
+.music{
+    display: none;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 40px;
+    height:40px;
+    background-image: url("video/music.svg") ;
+    background-size: 100% 100%;
+}
+
+.music.move{
+    -webkit-animation: audioMove 1s linear 0s infinite both;
+    animation: audioMove 1s linear 0s infinite both;
+}
+
+@-webkit-keyframes audioMove {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes audioMove {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
