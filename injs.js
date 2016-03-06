@@ -20,6 +20,7 @@ for(var i=1;i<oLis.length;i++){
 }
 oLis[0].addEventListener("touchstart", start1, false);
 function start1() {
+    e.stopPropagation();
     dd1.id = "dd1";
     pp1.innerHTML = "扫描中...";
     var fle=null;
@@ -38,9 +39,11 @@ function start1() {
 });
 function start(e) {
     this.startX = e.changedTouches[0].pageY;
+    e.stopPropagation();
 
 }
 function move(e) {
+    e.stopPropagation();
     this.flag = true;
     var moveTouch = e.changedTouches[0].pageY;
     var movePos = moveTouch - this.startX;
@@ -55,11 +58,11 @@ function move(e) {
     if (movePos > 0) {//往下滑
         //记录上一张的index；
         this.prevSindex = (index == oLis.length - 1 ? 0 : index + 1);
-        var duration = -winH + movePos;
+        var duration = -winH+ movePos;
     } else if (movePos < 0) {//往上滑
         //记录上一张的index
         this.prevSindex = (index == 0 ? oLis.length - 1 : index - 1);
-        var duration = winH + movePos;
+        var duration = winH+ movePos;
     }
     //this.style.webkitTransform=" scale("+(1-Math.abs(movePos)/winH*1/2)+") translate(0,"+movePos+"px)";
     oLis[this.prevSindex].style.webkitTransform = "translate(0," + duration + "px)";
@@ -67,6 +70,7 @@ function move(e) {
     oLis[this.prevSindex].style.display = "block";
 }
 function end(e) {
+    e.stopPropagation();
     if (this.flag) {
         oLis[this.prevSindex].style.webkitTransform = "translate(0,0)";
         oLis[this.prevSindex].style.webkitTransition = "0.5s ease-out";
