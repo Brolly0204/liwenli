@@ -58,5 +58,6 @@ function end(e){
             this.firstElementChild.id="a"+(this.index+1);
         },false)
     }
-
 }
+document.addEventListener("touchmove",function(e){
+},false);
