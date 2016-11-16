@@ -34,7 +34,7 @@
 #flightLineContain .flightLineCitys .linetContext {
     background-color: #3F89EA;
     margin-top: 0.48rem;
-    margin-bottom: .4rem;
+    padding-bottom: .4rem;
 }
 #flightLineContain .flightLineCitys .linetContext .lineTitle {
     text-align: center;

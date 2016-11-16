@@ -2668,7 +2668,7 @@
                         $('.linePrompt').hide();
                         $('#monthNum').show();
 
-                        //self.getPriceMonth();
+                        self.getPriceMonth();
 
                         $('#myLine').show();
                         self.formatData(resPrice);
