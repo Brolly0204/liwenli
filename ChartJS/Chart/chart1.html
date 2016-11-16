@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript">
+               var doc = document;
+                       var docEl = document.documentElement;
+                       var win = window;
+                       function refreshRem() {
+                           var width = docEl.getBoundingClientRect().width;
+
+                           // 按照640(设计稿的宽)比例可以直接用设计图尺寸除100
+                           var rem = width / 640 * 100;
+                           docEl.style.fontSize = rem + 'px';
+                       }
+                       var tid;
+                       win.addEventListener('resize', function () {
+                           clearTimeout(tid);
+                           tid = setTimeout(refreshRem, 300);
+                       }, false);
+                       win.addEventListener('pageshow', function (e) {
+                           if (e.persisted) {
+                               clearTimeout(tid);
+                               tid = setTimeout(refreshRem, 300);
+                           }
+                       }, false);
+                       refreshRem();
+    </script>
+    <style>
+        .oDiv {
+            width: 100%;
+            overflow-x: scroll;
+            overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+<div class="oDiv">
+<canvas id="can" style="width: 6.1rem;height: 3.5rem"></canvas>
+</div>
+<script type="text/javascript" src="../js/Chart-line.js"></script>
+<!--<script type="text/javascript" src="../Chart.js"></script>-->
+<!--<script type="text/javascript" src="../src/Chart.Line.js"></script>-->
+<script>
+var data = {
+    labels : [28,29,30,31,1,2,3,4],
+    datasets : [
+//        {
+//            fillColor : "rgba(220,220,220,0.5)",
+//            strokeColor : "rgba(220,220,220,1)",
+//            pointColor : "rgba(220,220,220,1)",
+//            pointStrokeColor : "#fff",
+//            data : [65,59,90,81,56,55,40,44]
+//        },
+        {
+            fillColor : "transparent",  //  曲线填充
+//            strokeColor : "rgba(151,187,205,1)",  // 曲线颜色
+            strokeColor : "#fff",
+            pointColor : "	#6495ED",     //  圆点填充颜色
+            pointStrokeColor : "	#6495ED",   //  圆点线条颜色
+            data : [128,140,125,119,146,127,140,128]
+        }
+    ]
+};
+var defaults = {
+
+    //Boolean - If we show the scale above the chart data
+    scaleOverlay : false,
+
+    //Boolean - If we want to override with a hard coded scale
+    scaleOverride : false,
+    //  点击时是否显示浮层
+    showTooltips: false,
+    //** Required if scaleOverride is true **
+    //Number - The number of steps in a hard coded scale
+    scaleSteps : null,
+    //Number - The value jump in the hard coded scale
+    scaleStepWidth : null,
+    //Number - The scale starting value
+    scaleStartValue : null,
+
+    //String - Colour of the scale line
+    scaleLineColor : "rgba(0,0,0,.1)",
+
+    //Number - Pixel width of the scale line
+    scaleLineWidth : 1,
+
+    //Boolean - Whether to show labels on the scale
+    //  是否显示Y轴标签
+    scaleShowLabels : false,
+
+    //Interpolated JS string - can access value
+    scaleLabel : "<%=value%>",
+
+    //String - Scale label font declaration for the scale label
+    scaleFontFamily : "'Arial'",
+
+    //Number - Scale label font size in pixels
+    scaleFontSize : 12,
+
+    //String - Scale label font weight style
+    scaleFontStyle : "normal",
+
+    //String - Scale label font colour
+    scaleFontColor : "#666",
+
+    ///Boolean - Whether grid lines are shown across the chart
+
+    //  背景方格设置
+    scaleShowGridLines : true,
+
+    //String - Colour of the grid lines
+    scaleGridLineColor : "rgba(0,0,0,.05)",
+
+    //Number - Width of the grid lines
+    scaleGridLineWidth : 1,
+
+    //Boolean - Whether the line is curved between points
+    bezierCurve : true,
+
+    //Boolean - Whether to show a dot for each point
+    //  是否显示圆点
+    pointDot : true,
+
+    //Number - Radius of each point dot in pixels
+    //  圆点半径
+    pointDotRadius : 4,
+
+    //Number - Pixel width of point dot stroke
+    //  圆点边框
+    pointDotStrokeWidth : 1,
+
+    //Boolean - Whether to show a stroke for datasets
+    datasetStroke : true,
+
+    //Number - Pixel width of dataset stroke
+    //  曲线宽度
+    datasetStrokeWidth : 4,
+
+    //Boolean - Whether to fill the dataset with a colour
+    datasetFill : true,
+
+    //Boolean - Whether to animate the chart
+    animation : true,
+
+    //Number - Number of animation steps
+    animationSteps : 1,
+
+    //String - Animation easing effect
+    animationEasing : "easeOutQuart",
+
+    //Function - Fires when the animation is complete
+    onAnimationComplete : null
+
+}
+
+    var can = document.getElementById('can');
+    var ctx = can.getContext('2d');
+    new Chart(ctx).Line(data,defaults);
+
+</script>
+</body>
+</html>
