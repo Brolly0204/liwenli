@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../../act.less">
+    <link rel="stylesheet" href="./line33.css">
+</head>
+<body>
+<section id="flightLineContain">
+    <div class="flightLineCitys">
+        <!-- 选择城市地点 -->
+        <div class="flightCitySelect">
+            <div class="LineDepCity " data-code="BJS">北京</div>
+            <div class="LineTo">到</div>
+            <div class="LineArrCity" data-code="NKG">南京</div>
+        </div>
+        <div class="linetContext">
+            <div class=" lineText"><span class="lineMonth"></span>月票价曲线</div>
+            <!--<div class="lineText">目前售票到<span>1月22日</span></div>-->
+        </div>
+        <!-- 曲线图 -->
+        <div class="posiLine">
+            <div id="monthNum"></div>
+            <div class="lineChart">
+                <div class="chart-wrap">
+                    <div class="linesMonth" >
+                        <!--<span class="rigBorder">11月</span><span>12月</span>-->
+                    </div>
+                    <canvas id="myLine" style="height: 4rem"></canvas>
+                    <div class="linePrompt">查询航班暂无票价信息</div>
+
+                </div>
+
+            </div>
+            <div class="leftFoword forArrow"></div><div class="rightFoword forArrow"></div>
+        </div>
+    </div>
+
+    <!-- 城市筛选 -->
+    <div class="citySelectList" id="spCityLine" style="display: none">
+        <header class="cityHeader">
+            <div class="cityClose"><span></span><span>关闭</span></div>
+            城市选择
+        </header>
+        <div id="flightLineCity" class="flightTciketCity"></div>
+    </div>
+
+</section>
+<script type="text/javascript">
+           var doc = document;
+                   var docEl = document.documentElement;
+                   var win = window;
+                   function refreshRem() {
+                       var width = docEl.getBoundingClientRect().width;
+
+                       // 按照640(设计稿的宽)比例可以直接用设计图尺寸除100
+                       var rem = width / 640 * 100;
+                       docEl.style.fontSize = rem + 'px';
+                   }
+                   var tid;
+                   win.addEventListener('resize', function () {
+                       clearTimeout(tid);
+                       tid = setTimeout(refreshRem, 300);
+                   }, false);
+                   win.addEventListener('pageshow', function (e) {
+                       if (e.persisted) {
+                           clearTimeout(tid);
+                           tid = setTimeout(refreshRem, 300);
+                       }
+                   }, false);
+                   refreshRem();
+</script>
+<script type="text/javascript" src="../../act_map.js"></script>
+<script type="text/javascript" src="./line2.js"></script>
+</body>
+</html>
